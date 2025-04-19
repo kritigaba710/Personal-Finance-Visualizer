@@ -27,7 +27,7 @@ export default function Home() {
   };
 
   const handleAddOrUpdate = () => {
-    fetchTransactions(); // Refresh after changes
+    fetchTransactions();
     setEditTxn(null);
   };
   

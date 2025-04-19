@@ -1,4 +1,3 @@
-//models/transaction.js
 import mongoose from "mongoose";
 
 const TransactionSchema = new mongoose.Schema({
@@ -22,7 +21,6 @@ const TransactionSchema = new mongoose.Schema({
   },
 });
 
-// Prevent model overwrite in development
 const Transaction = mongoose.models.Transaction || mongoose.model("Transaction", TransactionSchema);
 
 export default Transaction;

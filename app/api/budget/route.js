@@ -1,4 +1,3 @@
-// app/api/budget/route.js
 import { connectToDB } from "@/lib/mongodb";
 import Budget from "@/models/budget";
 import { NextResponse } from "next/server";

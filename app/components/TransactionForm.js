@@ -1,4 +1,3 @@
-//components/TransactionForm.js
 "use client";
 
 import { useEffect, useState } from "react";
@@ -9,12 +8,11 @@ export default function TransactionForm({ onAdd, editTxn, onUpdate }) {
     const [date, setDate] = useState("");
     const [category, setCategory] = useState("Other")
 
-    // Autofill when editing
     useEffect(() => {
         if (editTxn) {
             setAmount(editTxn.amount);
             setDescription(editTxn.description);
-            setDate(editTxn.date.split("T")[0]); // to match input type="date"
+            setDate(editTxn.date.split("T")[0]);
             setCategory(editTxn.category || "Other");
         }
     }, [editTxn]);
@@ -37,7 +35,7 @@ export default function TransactionForm({ onAdd, editTxn, onUpdate }) {
             });
 
             const data = await res.json();
-            onUpdate(data); // notify parent
+            onUpdate(data);
         } else {
             const res = await fetch("/api/transactions", {
                 method: "POST",
@@ -45,10 +43,9 @@ export default function TransactionForm({ onAdd, editTxn, onUpdate }) {
             });
 
             const data = await res.json();
-            onAdd(data); // notify parent
+            onAdd(data);
         }
 
-        // Reset form
         setAmount("");
         setDescription("");
         setDate("");

@@ -1,4 +1,3 @@
-// components/CategoryChart.js
 "use client";
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { useState,useEffect } from "react";

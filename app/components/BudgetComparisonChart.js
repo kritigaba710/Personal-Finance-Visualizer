@@ -1,4 +1,3 @@
-// components/BudgetComparisonChart.js
 "use client";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { useEffect, useState } from "react";

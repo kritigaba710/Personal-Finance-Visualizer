@@ -1,4 +1,3 @@
-// components/TransactionChart.js
 "use client";
 
 import { useEffect, useState } from "react";
@@ -11,7 +10,6 @@ export default function TransactionChart({ transactions }) {
     fetch("/api/transactions")
       .then((res) => res.json())
       .then((transactions) => {
-        // Group by month-year and sum amounts
         const monthlyData = transactions.reduce((acc, txn) => {
           const date = new Date(txn.date);
           const monthYear = `${date.toLocaleString('default', { month: 'short' })} ${date.getFullYear()}`;
@@ -24,15 +22,12 @@ export default function TransactionChart({ transactions }) {
           return acc;
         }, {});
 
-        // Convert to array and sort chronologically
         const sortedData = Object.entries(monthlyData)
           .map(([monthYear, amount]) => ({ monthYear, amount }))
           .sort((a, b) => {
             const [aMonth, aYear] = a.monthYear.split(' ');
             const [bMonth, bYear] = b.monthYear.split(' ');
             const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            
-            // Compare years first, then months
             return aYear !== bYear 
               ? aYear - bYear 
               : months.indexOf(aMonth) - months.indexOf(bMonth);

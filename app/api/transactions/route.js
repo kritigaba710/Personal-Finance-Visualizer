@@ -1,4 +1,3 @@
-// app/api/transactions/route.js
 import { connectToDB } from "@/lib/mongodb";
 import Transaction from "@/models/transaction";
 import { NextResponse } from "next/server";

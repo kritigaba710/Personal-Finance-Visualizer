@@ -1,4 +1,3 @@
-//components/TransactionList.js
 import { useEffect, useState } from "react";
 import { Trash2, Pencil } from "lucide-react";
 

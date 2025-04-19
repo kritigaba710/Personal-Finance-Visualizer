@@ -1,4 +1,3 @@
-// components/Dashboard.js
 "use client";
 import { useEffect, useState } from "react";
 
@@ -23,8 +22,6 @@ export default function Dashboard() {
                     acc[category] = (acc[category] || 0) + txn.amount;
                     return acc;
                 }, {});
-
-                // Calculate budget insights
                 const insights = budgets.map(budget => {
                     const spent = transactions
                         .filter(txn => txn.category === budget.category)
